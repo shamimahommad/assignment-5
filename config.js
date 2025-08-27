@@ -19,7 +19,7 @@ for (let i = 0; i < copyBtn.length; i++) {
         const copyNumber =card.querySelector('.service-number').innerText;
         // console.log(copyNumber); 
         navigator.clipboard.writeText(copyNumber);
-        alert(`This Number copied: ${copyNumber}`);       
+        alert(`📋 This Number copied: ${copyNumber}`);       
     });
 }
 

@@ -1,5 +1,13 @@
 // tailwind.config.js
 module.exports = {
-  content: ["./**/*.{html,js,jsx,ts,tsx}"],
-  theme: { extend: { colors: { brand: "#3b82f6" } } }
+  content: [
+    "./src/**/*.{html,js}", // অথবা আপনার ফাইলের পাথ
+    "./index.html",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [
+    require("daisyui")
+  ],
 };

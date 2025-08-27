@@ -19,7 +19,7 @@ for (let i = 0; i < copyBtn.length; i++) {
 }
 
 // call btn function
-const coinBalance =parseInt(document.getElementById('coin-balance').innerText);
+const transactionData = [];
 const callBtn = document.querySelectorAll('.call-btn');
 for (let i = 0; i < callBtn.length; i++) {
     callBtn[i].addEventListener('click', function () {
@@ -27,7 +27,38 @@ for (let i = 0; i < callBtn.length; i++) {
         const serviceName = card.querySelector('.service-name').innerText;
         const serviceNumber = card.querySelector('.service-number').innerText;
         // console.log(callIcon, serviceName, serviceNumber, coinBalance);
+        const coinBalance = parseInt(document.getElementById('coin-balance').innerText);
+        if (coinBalance < 20) {
+            alert("⚠️ You don't have enough coins for call");
+            return;
+        }
+        newBalance = coinBalance - 20;
+        // console.log(newBalance);
+        document.getElementById('coin-balance').innerText = newBalance;
         alert(`📞Calling.... ${serviceName} at ${serviceNumber}`);
-        
-    })
+
+        const data = {
+            name: serviceName,
+            num: serviceNumber,
+            time: new Date().toLocaleTimeString()
+        }
+
+        transactionData.push(data);
+        // console.log(transactionData);       
+
+        const transactionContainer = document.getElementById('container');
+            const div = document.createElement("div");
+            div.innerHTML =`
+                    <div class="mt-4 flex justify-between items-center bg-gray-100 rounded-xl p-2 text-sm">
+                        <div>
+                            <h1 class="font-bold">${data.name}</h1>
+                            <p>${data.num}</p>
+                        </div>
+                        <p>${data.time}</p>
+                    </div>
+            `
+            transactionContainer.appendChild(div);       
+            // console.log(div);
+            
+    });
 }

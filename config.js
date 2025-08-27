@@ -47,8 +47,8 @@ for (let i = 0; i < callBtn.length; i++) {
         // console.log(transactionData);       
 
         const transactionContainer = document.getElementById('container');
-            const div = document.createElement("div");
-            div.innerHTML =`
+        const div = document.createElement("div");
+        div.innerHTML = `
                     <div class="mt-4 flex justify-between items-center bg-gray-100 rounded-xl p-2 text-sm">
                         <div>
                             <h1 class="font-bold">${data.name}</h1>
@@ -56,9 +56,15 @@ for (let i = 0; i < callBtn.length; i++) {
                         </div>
                         <p>${data.time}</p>
                     </div>
-            `
-            transactionContainer.appendChild(div);       
-            // console.log(div);
-            
+            `;
+        transactionContainer.appendChild(div);
+        // console.log(div);            
     });
 }
+
+//Clear All History Function
+document.getElementById('history-clear')
+    .addEventListener('click', function () {
+        transactionData.length = 0;
+        document.getElementById('container').innerHTML = "";
+    })

@@ -15,6 +15,11 @@ for (let i = 0; i < copyBtn.length; i++) {
     copyBtn[i].addEventListener('click', () => {
         copyBalance++;
         document.getElementById('copy-balance').innerText = copyBalance;
+        const card =copyBtn[i].closest('.card');
+        const copyNumber =card.querySelector('.service-number').innerText;
+        // console.log(copyNumber); 
+        navigator.clipboard.writeText(copyNumber);
+        alert(`This Number copied: ${copyNumber}`);       
     });
 }
 

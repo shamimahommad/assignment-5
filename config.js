@@ -5,6 +5,7 @@ for (let i = 0; i < hearts.length; i++) {
     hearts[i].addEventListener('click', () => {
         heartBalance++;
         document.getElementById('heart-balance').innerText = heartBalance;
+        // hearts[i].style.color = 'red';
     });
 }
 

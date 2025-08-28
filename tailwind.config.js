@@ -1,7 +1,7 @@
 // tailwind.config.js
 module.exports = {
   content: [
-    "./src/**/*.{html,js}", // অথবা আপনার ফাইলের পাথ
+    "./src/**/*.{html,js}",
     "./index.html",
   ],
   theme: {
